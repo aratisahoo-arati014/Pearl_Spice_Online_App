@@ -35,4 +35,4 @@ Push to the branch: git push origin feature-branch-name.
 Open a pull request.
 
 Contact
-For questions or feedback, please reach out to me (Ankur Anand Mishra) at mishraankuranand@gmail.com].
+For questions or feedback, please reach out to me (Arati Sahu) at sahuarati557@gmail.com].
