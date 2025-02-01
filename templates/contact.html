@@ -1,0 +1,86 @@
+{% extends 'base.html'%}
+{% load static %}
+
+
+
+{% block childpage %}
+<style>
+    .form-control{
+    height:50px;
+    }
+</style>
+<div class="row heading text-center my-4">
+    <div class="col-sm-12 mx-auto text-center">
+   <p class="fs-3 p-0 m-0"> Contact <b class="txt-color1">Us
+   <i class="fa-solid fa-phone"></i></b></p>
+        <i>You may contact us by contact number of fill this form
+        any time you need professional support or have any question</i>
+        <hr/>
+        </div>
+</div>
+
+<!----start contact us---->
+<div class="row">
+    <div class="col-sm-10 mx auto">
+        <div class="row">
+            <div class="col-sm-6">
+       <p class="fs-3 p-0 m-0"> Contact <b class="txt-color1">Info</b></p>
+        <i>In addition to a contact form with custom fields, provide additional contact information such as your phone number, email address, and physical location.
+            This gives visitors multiple ways to reach you and caters to their preferred method of communication.</i>
+        <hr/>
+                <p><i class="fa-solid fa-location-dot"></i> Ameerpet, Hyderabad, Telangana</p> <br/>
+                <p><i class="fa-solid fa-mobile"></i> +91 7052606051</p> <br/>
+                <p><i class="fa-solid fa-envelope"></i> mishraankuranand@gmail.com </p> <br/>
+                <hr/>
+                <b>Follow Us</b> <br/>
+                 <i class="fa-brands fa-facebook ico"></i>
+            <i class="fa-brands fa-twitter ico"></i>
+            <i class="fa-brands fa-instagram ico"></i>
+            <i class="fa-brands fa-linkedin ico"></i>
+            <i class="fa-brands fa-telegram ico"></i>
+            </div>
+            <div class="col-sm-6 p-5 m-10">
+                <p class="fs-3 p-0 m-0"> Get <b class="txt-color1">In Touch</b></p><hr/>
+                <form autocomplete="off" method="post">
+                    {% csrf_token %}     <!---cross site request forgery-->
+                    Name<br/>
+                    <input name="name" class="form-control shadow-lg  mb-1 bg-body-tertiary rounded-0"
+                           type="text" required placeholder="Name..."/>
+
+                    Email<br/>
+                    <input name="email" class="form-control shadow-lg  mb-1 bg-body-tertiary rounded-0"
+                           type="email" required placeholder="Email..."/>
+                    Mobile<br/>
+                    <input name="mobile" class="form-control shadow-lg  mb-1 bg-body-tertiary rounded-0"
+                           type="number" required placeholder="Mobile..."/>
+                    Subject<br/>
+                    <input name="subject" class="form-control shadow-lg  mb-1 bg-body-tertiary rounded-0"
+                           type="text" required placeholder="Subject..."/>
+                    Message<br/>
+                    <textarea name="msg" class="form-control shadow-lg mb-1 bg-body-tertiary rounded-0"
+                    style="min-height:90px;" placeholder="Message"></textarea><br/>
+                    <input type="submit" value="Save" class="form-control shadow-lg mb-1 rounded-0 text-lightbg-mycolor1 w-25"/>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!------end contact us---->
+<div class="row mb-2 mt-4">
+    <div class="col-sm-12 mx-auto text-center">
+   <p class="fs-5 p-0 m-0"> Find us on <b class="txt-color1">Google map
+   <i class="fa-solid fa-location-dot"></i></b></p>
+        <i>You may contact us by Google map of search this location
+        any time you need professional support or have any problem</i>
+        <hr/>
+        </div>
+</div>
+
+
+<div class="row gmap">
+    <div class="col-sm-10 ma-auto">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m24!1m8!1m3!1d3806.4659969622144!2d78.44557587369057!3d17.437396401365454!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x3bcb90c55bb43183%3A0x1abc135b23ee2703!2sAmeerpet%2C%20Hyderabad%2C%20Telangana!3m2!1d17.4375084!2d78.4482441!4m5!1s0x3bcb90c8a05d2125%3A0xee84a18a25bbfce2!2s2nd%20Floor%2C%20Naresh%20i%20Technologies%2C%20Durga%20Bhavani%20Complex%2C%20Plaza%2C%20Ameerpet%2C%20Hyderabad%2C%20Telangana!3m2!1d17.4372742!2d78.44807399999999!5e0!3m2!1sen!2sin!4v1732921877805!5m2!1sen!2sin" 
+        style="max-height:500px; min-height:350px; width:100%;" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</div>
+{% endblock %}

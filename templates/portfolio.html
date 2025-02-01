@@ -1,0 +1,78 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block childpage %}
+<div class="row heading text-center my-3">
+    <div class="col-sm-5 mx-auto">
+    <p class="fs-2 p-0 m-0">My <b class="txt-colororange">Portfolio <i class="fas fa-user"></i></b></p>
+    </div>
+</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name's Portfolio</title>
+    <style>
+        .portfolio-img {
+            max-width:100%;
+            height:auto;
+        }
+        .section {
+            padding:60px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cover Section -->
+    <header class="bg-light text-dark text-center section">
+        <h1>Harshita Mishra</h1>
+        <h3>Full Stack Devloper</h3>
+        <img src="{% static 'images/M.jpg'%}" alt="Your Name" class="rounded-circle" style="width: 150px; border:3px solid black">
+    </header>
+
+    <!-- About Me Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>"Hello, I'm Harshita Mishra, a passionate, and dedicated software engineer and wab developer with a strong enthusiasm for building innovative solutions. With a solid foundation in computer science abd a keen interest in web technology, Istrive to deliver high-quality software products and web application that exceed expectaions."</p>
+            <p>As a software engineer, I have honed my skills in [mention specific programming languages, technologies, or areas of expertise). My experience has taught me the importance of collaboration, adaptability, and continuous learning in the ever-evolving tech landscape.</p>
+            <p>As a web developer, I specialize in crafting responsive, user-friendly, and scalable web applications using HTML, CSS, JavaScript, Bootstrap, Python with Django Framework etc. I'm well-versed in both front-end a back-end development and have a keen eye for detail.</p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section bg-light" id="skills">
+        <div class="container">
+            <h2>Skills</h2>
+            <ul>
+                <li><b>HTML/CSS Proficiency:</b> A solid understanding of HTML for structure and CSS for styling is fundamental. Mastery in these technologies enables developers to create well-structured and visually appealing web pages.</li>
+                <li><b>JavaScript and Frameworks:</b> JavaScript is crucial for adding interactivity to websites. Familiarity with frameworks like React, Vue, or Angular can enhance development efficiency and user experience.</li>
+                <li><b>Version Control/Git:</b> Knowledge of version control systems, particularly Git, is vital for collaboration and managing code changes. It helps track progress, collaborate with teams, and maintain code integrity.</li>
+                <li><b>Responsive Design and Mobile Optimization:</b> The ability to create responsive designs that work on various devices is essential. Understanding mobile-first design principles ensures websites perform well on smartphones and tablets.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <h2>Contact Me:</h2>
+            <p>Address: Gonda ,UtterPradesh 271302</p>
+            <p>Email: mharshita246@gmail.com</p>
+            <p>Phone: +91 6387904929</p>
+            <a href="#" class="btn btn-success">LinkedIn Profile</a>
+        </div>
+    </section>
+
+    <footer class="text-center section">
+        <p>&copy; 2024  Harshita Mishra. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+{% endblock %}

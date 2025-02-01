@@ -1,0 +1,101 @@
+{% extends 'base.html'%}
+{% load static %}
+
+
+
+{% block childpage %}
+
+<!---------start heading------>
+
+
+        <div class="row mb-2 mt-4">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-5">
+                <p class="fs-3 m-0">Food<b class="txt-color1">Category <i class="fa-solid fa-list"></i></b></p>
+                <i> love working on restaurant social media content! There’s only one small problem with it. It works. I’m so hungry and have an incredible craving for the type of food I’m working with, so I usually go out for lunch that day.</i>
+                <hr/>
+            </div>
+        </div>
+<!---------end heading------>
+<div class="row">
+    <div class="col-sm-3">
+        <ul class="list-group">
+            <li class="list-group-item bg-mycolor1 text-light ">Featured Category
+            <i class="fa-solid fa-list"></i></li>
+            {% for x in categorydata %}
+
+       <li class="list-group-item">
+           <img src="../{{x.category_picture}}" class="img-thumbnail" style="height:50px; margin-right:10px;"/>
+             <a href="/food?pid={{x.id}}"  style="text-decoration:none;" class="text-dark">
+           {{x.product_category}}
+           </a>
+       </li>
+
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="col-sm-9">
+        <div class="row">
+                   {% for i in productdata %}
+                <div class="col-sm-3">
+                    <!-----start food---->
+                    <div class="card border-0 shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-mycolor2">
+                          <i class="fa-solid fa-indian-rupee-sign"></i>
+                          {{i.discount_price}} <span class="visually-hidden">unread messages</span></span>
+
+
+  <img src="../{{i.product_image}}" class="card-img-top" alt="..."/>
+  <div class="card-body">
+    <h5 class="card-title">{{i.product_name}}</h5>
+    <p class="card-text">
+        <i class="fa-solid fa-indian-rupee-sign"></i> {{i.price}}
+        <b>{{i.quantity}}</b>
+
+        <!------cart count---->
+      <form action="/productcart/">
+      <input type="hidden" name="pid" value="{{i.id}}"/>
+      <input type="hidden" name="pimage" value="{{i.product_image}}"/>
+      <input type="hidden" name="pprice" value="{{i.price}}"/>
+      <input type="hidden" name="pname" value="{{i.product_name}}"/>
+
+
+        <div class="input-group">
+      <b class="input-group-text fs-4" onclick="cminus{{i.id}}()" style="cursor: pointer;">-</b>
+      <input type="text" value="0" name="pquantity" id="carttxt{{i.id}}" readonly class="form-control">
+      <b class="input-group-text" onclick="cplus{{i.id}}()" style="cursor: pointer;">+</b>
+  </div>
+        <!------end cart count---->
+    </p>
+      <input type="submit" value="Add" class="btn bg-mycolor1 text-light">
+  </form>
+  </div>
+                    </div>
+
+                <!-----end food---->
+
+             </div>
+
+                 <script>
+        var x{{i.id}}=0
+        function cplus{{i.id}}()
+        {
+        x{{i.id}}++;
+        document.getElementById("carttxt{{i.id}}").value=x{{i.id}}
+        }
+         function cminus{{i.id}}()
+         { if(x{{i.id}}>0)
+        {
+        x{{i.id}}--;
+        document.getElementById("carttxt{{i.id}}").value=x{{i.id}}
+        }
+        }
+    </script>
+                                    {% endfor %}
+<!-----end food---->
+
+        </div>
+    </div>
+</div>
+{% endblock %}

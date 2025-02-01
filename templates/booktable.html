@@ -1,0 +1,55 @@
+{% extends 'base.html'  %}
+{% load static %}
+
+
+{% block childpage %}
+<style>
+    .form-control
+    {
+    height:50px;
+    margin-bottom:3%;
+    background:rgba(0,0,0.5):
+
+
+    }
+</style>
+
+<div class="row">
+    <h1 class="lead text-center" style="font-size:75px;">Book <b>Table</b></h1>
+</div>
+<div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-5 mx-auto">
+            <div class="col-sm-5"></div>
+            <div class="col-sm-1"></div>
+
+
+        <form method="post">
+           {% csrf_token %}
+            Name <input type="text" name="name" required placeholder="Name.." class="form-control"/>
+            Email <input type="email" name="email" required placeholder="Email.." class="form-control"/>
+            Mobile <input type="text" name="mobile" required placeholder="Mobile.." class="form-control"/>
+            Number Of People <input type="number" name="people" required placeholder="NO Of People" />
+            Date Of Booking <input type="date" name="bookingdate" required class="form-control"/>
+            Time Of Booking <input type="time" name="bookingtime" required class="form-control"/>
+            Type Of Food
+            <select class="form-control" name="foodtype">
+                <option>--Select food Type --</option>
+                <option>Veg</option>
+                <option>Non-Veg</option>
+            </select>
+            <select class="form-control" name="eventtype">
+                <option>-- Select Even Type--</option>
+                <option>Birthday</option>
+                <option>Farewell</option>
+                <option>Anniversary</option>
+
+            </select>
+            <input type="submit" value="Book Now" class="btn bg-mycolor1 text-light" />
+
+        </form>
+    </div>
+
+</div>
+
+ {% endblock %}

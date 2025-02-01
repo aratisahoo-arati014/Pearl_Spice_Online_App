@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/peral-fav.png' %}">
+    <title>PearlSpice</title>
+    <link href="{% static 'css/all.css' %}" rel="stylesheet"/>
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet"/>
+    <style>
+        :root
+        {
+          --color1:#4A4E69;
+          --color2:#E76F51 ;
+
+
+        }
+        body{
+          overflow-x: hidden;
+        }
+        .bg-mycolor1
+        {
+        background:var(--color1) !important;
+        }
+        .bg-mycolor2
+        {
+        background:var(--color2) !important;
+        }
+        .txt-color1
+        {
+        color:var(--color1) !important;
+        }
+        .txt-color2
+        {
+        color:var(--color2) !important;
+        }
+        .t1 a
+        {
+        text-decoration:none;
+        color:#FFFFFF;
+
+        }
+        .t1
+        {
+         color:white;
+        font-size:12px;
+         background:#4A4E69;
+        }
+        .t2
+        {
+
+        font-size:12px;
+         background:#CFD8DC;
+        }
+        .ico
+        {
+        border:1px solid #FFFFFF;
+        height:20px;
+        width:20px;
+        text-align:center;
+        line-height:20px;
+        transition:all .5s;
+        border-radius:2px;
+        }
+        .ico:hover
+        {
+        border: 1px solid #9E9E9E;
+        color:#FFFFFF;
+        transform:rotate(360deg);
+        transition:all .5s;
+        }
+        #menu
+        {
+        background:transparent !important;
+        }
+        #menu ul li a
+        {
+        color:white;
+        }
+        #navbarNav li{
+        height:40px;
+        width:110px;
+         text-align:center;
+         line-height:20px;
+      border-radius:50px;
+      transition:all 1s;
+
+      }
+       #navbarNav li:hover
+        {
+         border:1px solid #BDBDBD;
+        background:#4F4F4F;
+        transition:all 1s;
+        }
+        .ufooter
+        {
+        min-height:300px;
+        background:#262626;
+        color:white;
+
+        }
+        .bfooter
+        {
+        background:#4A4E69;
+        margin-top:1px;
+        text-align:center;
+        color:white;
+        }
+        .a{
+        text-decoration-line:overline;
+        }
+        .cardzoom:hover
+        {
+        transform:scale(1.0);
+        transition:all ease 2s;
+        }
+        .cardzoom{
+        transform:scale(1.1);
+        transition:all ease 2s;
+        }
+        .ic{
+        border-radius:50%;
+        border:1px solid white;
+        padding:15px;
+        }
+        .zoomIn:hover{
+        transform:scale(1.1);
+        transition:all ease 2s;
+        }
+        .t1 a{
+        color:white;
+        }
+
+
+    </style>
+
+</head>
+<body>
+<div class="container-fluid ">
+    <div class="row t1 border-bottom border-success text-center py-1 text-light  ">
+       <div class="col-sm-4 ">
+        <a href="#" >FAQs</a> |
+            <a href="#">About Us</a> |
+            <a href="#">Contact & Support</a>
+        </div>
+        <div class="col-sm-4  ">
+            <i class="fa-solid fa-phone ico"></i>
+            +91 6371889668
+
+        </div>
+        <div class="col-sm-4">
+            <i class="fa-brands fa-facebook ico"></i>
+            <i class="fa-brands fa-twitter ico"></i>
+            <i class="fa-brands fa-instagram ico"></i>
+            <i class="fa-brands fa-linkedin ico"></i>
+            <i class="fa-brands fa-telegram ico"></i>
+        </div>
+    </div>
+    <div class="row t2 text-center py-4">
+       <div class="col-sm-4 fs-2">
+        Pearl<b class="txt-color2">Spice <i class="fa-solid fa-bowl-rice"></i></b>
+       </div>
+       <div class="col-sm-4 p-2">
+           {% if request.session.user %}
+           <a href="/history/" class="btn btn-sm bg-mycolor1 text-light"><i class="fa-solid fa-truck"></i> Order History </a>
+           <a href="/profile/" class="btn btn-sm bg-mycolor1 text-light"><i class="fa-solid fa-user"></i> My Profile</a>
+           {% else %}
+           <h2 class="text-center">Welcome to Pearl Spice</h2>
+           {% endif %}
+       </div>
+       <div class="col-sm-4 pt-1">
+           <a href="/showcart/" class="btn btn-sm bg-mycolor2 cursor-pointer">Cart <i class="fa-solid fa-cart-shopping"></i>
+           <i class="badge bg-dark">
+               {% if request.session.user %}
+               {{request.session.cartitems }}
+               {% else %}
+               0
+               {% endif %}
+           </i>
+           </a>
+
+           {% if request.session.user %}
+                       <img src="../{{request.session.userpic}}" height="50px" class="p-2 border border-dark"/>
+           <b>{{request.session.username}}</b>
+           {% else %}
+           <i class="fa-regular fa-user"></i>
+            <b class="cursor-pointer">Guest</b>
+
+           {% endif %}
+
+       </div>
+    </div>
+    <div class="row t3 bg-mycolor1 sticky-top shadow-lg py-4" style="min-height:40px;">
+   <div class="col-sm-3"></div>
+   <div class="col-sm-6">
+       <!--start menu-->
+       <nav class="navbar navbar-expand-lg bg-body-tertiary p-0" id="menu">
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/home/">
+              <i class="fa-solid fa-house"></i> Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/food/">
+            <i class="fa-solid fa-carrot"></i> Food</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about/"><i class="fa-solid fa-book"></i> About Us</a>
+        </li>
+           <li class="nav-item">
+          <a class="nav-link" href="/register/"><i class="fa-solid fa-user-plus"></i> Register</a>
+        </li>
+           <li class="nav-item">
+          <a class="nav-link" href="/contact/"><i class="fa-solid fa-message"></i> ContactUs</a>
+        </li>
+           <li class="nav-item">
+          <a class="nav-link" href="/faqs/"><i class="fa-solid fa-clipboard-question"></i> FAQs</a>
+        </li>
+           <li class="nav-item">
+          <a class="nav-link" href="/booktable/"> <i class="fa-solid fa-utensils"></i> BookTable</a>
+        </li>
+           <li class="nav-item">
+               {% if request.session.user %}
+                         <a class="nav-link" href="/logout/"> <i class="fa-solid fa-power-off"></i> Logout</a>
+               {% else %}
+                         <a class="nav-link" href="/login/"> <i class="fa-solid fa-right-to-bracket"></i> Login</a>
+
+
+               {% endif %}
+           </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+       <!----end menu---->
+   </div>
+   <div class="col-sm-3"></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 childpage" style="min-height:500px;">
+            {% block childpage %}
+
+            {% endblock %}
+        </div>
+    </div>
+
+
+    <div class="row ufooter mt-3 ">
+        <div class="row ufooter mt-3 txt-color:white">
+ <div class="col-sm-3">
+                <p class="fs-7">Sign up to newsletter to get the latest food items news.</p><hr/>
+                <div style="margin-top:20px;">
+                    <input type="email" placeholder="Your email" style="padding:5px; width:100%; margin-right:10px;">
+                    <button style="padding:5px 10px; margin-top: 10px; background-color:orange; border:none; color:white; width:100%;">Subscribe</button>
+            </div>
+                </div>
+            <div class="col-sm-3">
+                <div class="text-center fs-6 "><b class="txt-mycolor2 ">USEFUL LINKS </b><br/><hr/>
+                  <i class="fa-solid fa-house"></i> &rarr; Home </br>
+                  <i class="fa-regular fa-address-card"></i> &rarr; About Us </br>
+                   <i class="fa-solid fa-blog"></i> &rarr; Blog Grid </br>
+                   <i class="fa-solid fa-address-book"></i> &rarr; Contact Us </br>
+                    &rarr; Privacy Policy </br>
+                   <i class="fa-solid fa-utensils"></i> &rarr; BookTable </br>
+
+                    </div>
+
+            </div>
+            <div class="col-sm-3">
+                <div class="text-center fs-6 "><b class="txt-mycolor2 ">ADDRESS </b><br/><hr/>
+            <p><i class="fa-solid fa-location-crosshairs"></i> Gurudwara Temple, Swathi Avenue,<br/>
+              Ameerpet, Hyderabad, Telangana, India<br/></p>
+                    <p class="fs-6"><a href="mailto:mishraankuranand@gmail.com" style="color:#fff; text-decoration:none;"><i class="fa-solid fa-envelope"></i> mishraankuranand@gmail.com<br/></a></p>
+
+           </div>
+           </div>
+            <div class="col-sm-3">
+
+   <div class="text-center fs-6 "><b class="txt-mycolor2 ">OPENING HOURS </b><br/><hr/>
+
+      <p> Monday:          09AM-22:00PM </p>
+       <p>Tuesday:         09AM-22:00AM</p>
+       <p>Wednesday:        09AM-20:00PM</p>
+       <p>Thursday:        08AM-22:00PM</p>
+       <p>Friday:          09AM-22:00PM</p>
+       </div>
+   </div>
+            </div>
+        </div>
+    </div>
+    <div class="row bfooter py-2">
+         <div class="col-sm-4">
+            <i class="fa-brands fa-facebook ico"></i>
+            <i class="fa-brands fa-twitter ico"></i>
+            <i class="fa-brands fa-instagram ico"></i>
+            <i class="fa-brands fa-linkedin ico"></i>
+            <i class="fa-brands fa-telegram ico"></i>
+        </div>
+        <div class="col-sm-4">
+            Developed By : <a href="https://my-portfolio01-p.netlify.app/" download style="text-decoration:none;color:white;">Arati Sahu</a>
+        </div>
+        <div class="col-sm-4">
+            &copy <a href=""style="text-decoration:none;color:white;"> All rights reserved</a>
+            </div>
+
+    </div>
+
+</div>
+
+
+
+
+<script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+<script>
+   var i=0
+    function cplus()
+    {
+      i++;
+      document.getElementById("carttxt").value=i
+
+    }
+    function cminus()
+    { if(i>0)
+    {
+        i--;
+        document.getElementById("carttxt").value=i
+    }
+    }
+
+    var a=0
+    function cplus1()
+    {
+      a++;
+      document.getElementById("carttxt1").value=a
+
+    }
+    function cminus1()
+    { if(a>0)
+    {
+        a--;
+        document.getElementById("carttxt1").value=a
+    }
+    }
+    var b=0
+    function cplus2()
+    {
+      b++;
+      document.getElementById("carttxt2").value=b
+
+    }
+    function cminus2()
+    { if(b>0)
+    {
+        b--;
+        document.getElementById("carttxt2").value=b
+    }
+    }
+     var c=0
+    function cplus3()
+    {
+      c++;
+      document.getElementById("carttxt3").value=c
+
+    }
+    function cminus3()
+    { if(c>0)
+    {
+        c--;
+        document.getElementById("carttxt3").value=c
+    }
+    }
+</script>
+
+</body>
+</html>

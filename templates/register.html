@@ -1,0 +1,123 @@
+{% extends 'base.html'%}
+{% load static %}
+
+
+
+  {% block childpage %}
+
+<style>
+    .form-control{
+    height:50px;
+    background:#e9eaec !important;
+    border-radius:0px !important;
+
+    }
+    .input-group-text
+    {
+    height:50px;
+
+    text-align:center;
+    background:var(0,0,0,.7);
+    border-radius:0px !important;
+    color:white;
+
+    }
+</style>
+
+<!---------start heading------>
+
+
+        <div class="row mb-2 mt-4">
+            <div class="col-sm-5 mx-auto text-center">
+                <p class="fs-3 m-0">Register<b class="txt-color1">Now <i class="fa-solid fa-phone"></i>
+</b></p> <hr/>
+                <i> I enjoy creating engaging social media content for restaurants. While it's rewarding to see the positive impact, the challenge often lies in resisting the temptation to indulge in the delectable cuisine I'm promoting.</i>
+                 <hr/>
+            </div>
+        </div>
+<!---------end heading------>
+
+
+
+
+
+
+  <div class="container">
+    <div class="row heading text-align-center my-4">
+    <div class="col-sm-4 ms-auto">
+        </div>
+  </div>
+    <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-8 shadow-lg p-5">
+        <form autocomplete="off" method="post" enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+         <div class="row mt-4">
+          <div class="col-sm-6">
+            <div class="input-group flex-nowrap">
+  <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+  <input type="text" name="name" class="form-control" placeholder="Enter your name" aria-label="Username" aria-describedby="addon-wrapping">
+</div>
+          </div>
+           <div class="col-sm-6">
+            <div class="input-group flex-nowrap">
+  <span class="input-group-text" ><i class="fa-solid fa-user"></i></span>
+  <input type="text" class="form-control" name="email" placeholder="Enter your email" aria-label="Username" aria-describedby="addon-wrapping">
+</div>
+          </div>
+        </div>
+
+         <div class="row mt-4">
+          <div class="col-sm-6">
+            <div class="input-group flex-nowrap">
+  <span class="input-group-text" ><i class="fa-solid fa-user"></i></span>
+  <input type="text" class="form-control" name="passwd" placeholder="Enter your password" aria-label="Username" aria-describedby="addon-wrapping">
+</div>
+          </div>
+           <div class="col-sm-6">
+            <div class="input-group flex-nowrap">
+  <span class="input-group-text" ><i class="fa-solid fa-user"></i></span>
+  <input type="text" class="form-control" name="mobile" placeholder="Enter your Mobile.No" aria-label="Username" aria-describedby="addon-wrapping">
+</div>
+          </div>
+        </div>
+
+         <div class="row mt-4">
+          <div class="col-sm-6">
+            <div class="input-group flex-nowrap">
+  <span class="input-group-text" ><i class="fa-solid fa-user"></i></span>
+  <input type="text" class="form-control" name="address" placeholder="Enter your address" aria-label="Username" aria-describedby="addon-wrapping">
+</div>
+          </div>
+           <div class="col-sm-6">
+            <div class="input-group flex-nowrap">
+  <span class="input-group-text" ><i class="fa-solid fa-user"></i></span>
+  <input type="text" class="form-control" name="city" placeholder="Enter your city" aria-label="Username" aria-describedby="addon-wrapping">
+</div>
+          </div>
+        </div>
+ <div class="row mt-4">
+          <div class="col-sm-6">
+            <div class="input-group flex-nowrap">
+  <span class="input-group-text" ><i class="fa-solid fa-user"></i></span>
+  <input type="text" class="form-control" name="pincode" placeholder="Enter your pincode" aria-label="Username" aria-describedby="addon-wrapping">
+</div>
+          </div>
+           <div class="col-sm-6">
+            <div class="input-group flex-nowrap">
+  <span class="input-group-text" ><i class="fa-solid fa-user"></i></span>
+  <input type="file" class="form-control" name="fu" aria-label="Username" aria-describedby="addon-wrapping">
+</div>
+          </div>
+        </div>
+
+<input type="submit" value="Register Now" class=" btn  bg-mycolor2 text-light rounded-0 my-3"/>
+        </form>
+
+       </div>
+      <div class="col-sm-2"></div>
+      </div>
+    </div>
+   {% endblock %}
